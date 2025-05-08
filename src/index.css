@@ -1,0 +1,28 @@
+:root {
+    margin-top: 30px;
+    margin-left: 300px;
+    margin-bottom: 50px;
+}
+
+#cerveceria {
+    width: 70%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 899px) {
+    :root {
+        margin-top: 80px;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #cerveceria {
+        width: 90%;
+    }
+
+    .Breadcrumbs {
+        margin-left: 20px !important;
+    }
+}
