@@ -33,35 +33,7 @@ El componente <ErrorBoundary> encapsula los componentes principales para captura
 - Los datos están organizados en archivos .json, lo cual es ideal para desarrollo frontend sin backend.
 - Se usa un ErrorBoundary para mejorar la experiencia de usuario en caso de fallos de renderizado.
 
-- src/                  -- Código fuente de la aplicación
-    - assets/               -- Imágenes y recursos estáticos
-        - cerveceria.jpg
-        - HopyHour_logo.png
-    - components/           -- Componentes reutilizables de UI
-        - Charts.jsx            -- Gráficos visuales con datos
-        - ErrorBoundary.jsx     -- Manejador de errores global
-        - Layout.jsx            -- Diseño base de la app (usado en el router)
-        - Navbar.jsx            -- Barra de navegación superior
-    - hooks/                -- Custom hooks de React
-        - useFetch.jsx          -- Hook para obtener datos desde APIs
-        - useMetaFiltered.jsx   -- Hook para filtrar datos según metainformación
-    - pages/                -- Vistas principales asociadas a rutas
-        - About.jsx             -- Página "Sobre nosotros"
-        - Cerveceria.jsx        -- Vista detallada de una cervecería
-        - Cervecerias.jsx       -- Lista de cervecerías por país y tipo
-        - CerveceriasTipos.jsx  -- Tipos de cervecerías y descripción
-        - Contact.jsx           -- Página de contacto
-        - NotFound.jsx          -- Página 404
-        - Paises.jsx            -- Lista de países
-        - PaisesTipos.jsx       -- Tipos de cervecerías por país
-    - App.jsx               -- Componente raíz principal que integra los gráficos
-    - chartCountries.json   -- Datos JSON usados para gráficos de países
-    - chartTypes.json       -- Datos JSON para gráficos por tipo
-    - index.css             -- Estilos globales
-    - main.jsx              -- Punto de entrada de la aplicación
-    - paises.json           -- Dataset de países
-    - Router.jsx            -- Configuración de rutas con React Router
-    - tipos.json            -- Dataset de tipos de cervecerías
+![image](https://github.com/user-attachments/assets/3476d860-d93d-4eaf-83ce-4c589764f86a)
 
 ## Instalación
 
