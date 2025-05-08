@@ -141,6 +141,7 @@ const Cerveceria = () => {
           gutterBottom
           component={Link}
           to={ brewery.website_url }
+          target="_blank"
         >
           { brewery.website_url }
         </Typography>
