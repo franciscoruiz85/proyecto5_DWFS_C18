@@ -37,12 +37,16 @@ El componente <ErrorBoundary> encapsula los componentes principales para captura
 
 ## Estructura de los .json
 - paises
+
 ![image](https://github.com/user-attachments/assets/e80e2af6-a0ba-447a-8535-fedbd4cfa691)
 - tipos
+
 ![image](https://github.com/user-attachments/assets/fe67a304-ea02-48b1-b16c-e489edc624a3)
 - chartCountries
+
 ![image](https://github.com/user-attachments/assets/49774211-1c69-4048-be5c-9bde49c735fd)
 - chartTypes
+
 ![image](https://github.com/user-attachments/assets/237ccf04-188a-43f0-ba82-ba73790689d4)
 
 ## Instalación
