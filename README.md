@@ -1,4 +1,4 @@
-# Proyecto 5 - Visualización de Cervecerías y Países
+# Proyecto 5 - Aplicación sobre Cervecerías
 
 Este es un proyecto frontend construido con **React 19**, **Vite**, y **Material UI (MUI)** que permite visualizar distintos tipos de cervecerías y países, utilizando gráficas interactivas.
 
