@@ -1,0 +1,50 @@
+[
+    {
+        "type": "Bar",
+        "breweries": 37
+    },
+    {
+        "type": "Pub Cervecería",
+        "breweries": 2506
+    },
+    {
+        "type": "Cerrada",
+        "breweries": 227
+    },
+    {
+        "type": "Contrato",
+        "breweries": 189
+    },
+    {
+        "type": "Macro",
+        "breweries": 90
+    },
+    {
+        "type": "Local",
+        "breweries": 1
+    },
+    {
+        "type": "Micro",
+        "breweries": 4313
+    },
+    {
+        "type": "Nano",
+        "breweries": 13
+    },
+    {
+        "type": "En proyecto",
+        "breweries": 674
+    },
+    {
+        "type": "Indendiente",
+        "breweries": 69
+    },
+    {
+        "type": "Regional",
+        "breweries": 228
+    },
+    {
+        "type": "Sala de degustación",
+        "breweries": 20
+    }
+]

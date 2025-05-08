@@ -1,0 +1,42 @@
+[
+    {
+        "country": "Austria",
+        "breweries": 14
+    },
+    {
+        "country": "Escocia",
+        "breweries": 10
+    },
+    {
+        "country": "Estados Unidos",
+        "breweries": 8037
+    },
+    {
+        "country": "Francia",
+        "breweries": 3
+    },
+    {
+        "country": "Inglaterra",
+        "breweries": 62
+    },
+    {
+        "country": "Irlanda",
+        "breweries": 70
+    },
+    {
+        "country": "Korea del Sur",
+        "breweries": 61
+    },
+    {
+        "country": "Polonia",
+        "breweries": 34
+    },
+    {
+        "country": "Portugal",
+        "breweries": 14
+    },
+    {
+        "country": "Singapur",
+        "breweries": 33
+    }
+]
