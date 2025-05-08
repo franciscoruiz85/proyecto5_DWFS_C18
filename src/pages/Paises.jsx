@@ -27,8 +27,8 @@ const Paises = () => {
       </Grid>
       <Grid
         container
-        rowSpacing={ 2 }
-        columnSpacing={ 2 }
+        rowSpacing={2}
+        columnSpacing={2}
         sx={{
           justifyContent: 'center',
           alignItems: 'center'

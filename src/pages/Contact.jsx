@@ -33,6 +33,8 @@ const Contact = () => {
         <Typography
           component={Link}
           to={'https://discord.gg/WMPB3VZ'}
+          target="_blank"
+          sx={{ paddingLeft: 1 }}
         >
           https://discord.gg/WMPB3VZ
         </Typography>
