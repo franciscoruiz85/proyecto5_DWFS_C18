@@ -142,6 +142,7 @@ const Cerveceria = () => {
           component={Link}
           to={ brewery.website_url }
           target="_blank"
+          sx={{ paddingLeft: 1 }}
         >
           { brewery.website_url }
         </Typography>
