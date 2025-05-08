@@ -1,9 +1,12 @@
 import Charts from "./components/Charts"
+import { ErrorBoundary } from "./components/ErrorBoundary"
 
 function App() {
   return (
     <>
-      <Charts />
+      <ErrorBoundary>
+        <Charts />
+      </ErrorBoundary>
     </>
   )
 }
