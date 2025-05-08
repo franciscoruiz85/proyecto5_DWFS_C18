@@ -13,12 +13,73 @@ const paises = await import('../paises.json').then(module => module.default)
 const tipos = await import('../tipos.json').then(module => module.default)
 
 const Cerveceria = () => {
-  const location = useLocation();
-  const brewery = location.state?.brewery;
-  // console.log(brewery);
+  const location = useLocation()
+  const brewery = location.state?.brewery
+  // console.log(brewery)
+  const infoCountry = paises.find(pais => pais.key === brewery.country.replace(/\s+/g, '_').toLowerCase())
+  // console.log('infoCountry ', infoCountry)
+  const infoType = tipos.find(tipo => tipo.key === brewery.brewery_type.replace(/\s+/g, '_'))
+  // console.log('infoType ', infoType)
+  const breadcrumbs = [
+    <Link
+      underline="hover"
+      key="1"
+      color="inherit"
+      to={ "/paises" }
+    >
+      Paises
+    </Link>,
+    <Link
+      underline="hover"
+      key="2"
+      color="inherit"
+      to={ `/paises/${infoCountry.name.replace(/\s+/g, '_')}` }
+      state={{
+        country: {
+          key: infoCountry.key,
+          name: infoCountry.name
+        }
+      }}
+    >
+      { infoCountry.name }
+    </Link>,
+    <Link
+      underline="hover"
+      key="3"
+      color="inherit"
+      to={ `/cervecerias/${infoCountry.name.replace(/\s+/g, '_')}/${infoType.name.replace(/\s+/g, '_')}` }
+      state={{
+          country: infoCountry.key,
+          type: infoType.key
+      }}
+    >
+      { infoType.name }
+    </Link>,
+    <Typography
+      key="4"
+      sx={{ color: 'text.primary' }}
+    >
+      { brewery.name }
+    </Typography>
+  ]
 
   return (
     <Container>
+      <Stack
+        spacing={2}
+        sx={{ marginBottom: 2 }}
+      >
+        <Breadcrumbs
+          className="Breadcrumbs"
+          separator={
+            <NavigateNextIcon
+            fontSize="small"
+          />}
+          aria-label="breadcrumb"
+        >
+          { breadcrumbs }
+        </Breadcrumbs>
+      </Stack>
       <Grid
         container
         sx={{

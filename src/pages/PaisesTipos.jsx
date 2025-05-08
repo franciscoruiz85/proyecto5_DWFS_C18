@@ -23,6 +23,23 @@ const PaisesTipos = () => {
   const country = location.state?.country.key
   // console.log(location.state)
   const info = paises.find(pais => pais.key === country)?.name
+  const breadcrumbs = [
+    <Link
+      underline="hover"
+      key="1"
+      color="inherit"
+      to={"/paises"}
+    >
+      Paises
+    </Link>,
+    <Typography
+      key="2"
+      sx={{ color: 'text.primary' }}
+    >
+      {info}
+    </Typography>
+  ]
+
   const [bTypes, setBTypes] = useState(null);
   const [loading, setLoading] = useState(true);
   const url = `https://api.openbrewerydb.org/v1/breweries/meta?by_country=${country}`;
@@ -55,6 +72,21 @@ const PaisesTipos = () => {
 
   return (
     <Container>
+      <Stack
+        spacing={2}
+        sx={{ marginBottom: 2 }}
+      >
+        <Breadcrumbs
+          className="Breadcrumbs"
+          separator={
+            <NavigateNextIcon
+            fontSize="small"
+          />}
+          aria-label="breadcrumb"
+        >
+          { breadcrumbs }
+        </Breadcrumbs>
+      </Stack>
       <Grid
         container
         sx={{

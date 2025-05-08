@@ -31,6 +31,36 @@ const Cervecerias = () => {
   // console.log('infoCountry ', infoCountry)
   const infoType = tipos.find(tipo => tipo.key === type)?.name
   // console.log('infoType ', infoType)
+  const breadcrumbs = [
+    <Link
+      underline="hover"
+      key="1"
+      color="inherit"
+      to={"/paises"}
+    >
+      Paises
+    </Link>,
+    <Link
+      underline="hover"
+      key="2"
+      color="inherit"
+      to={`/paises/${infoCountry.replace(/\s+/g, '_')}`}
+      state={{
+        country: {
+          key: country,
+          name: infoCountry
+        }
+      }}
+    >
+      { infoCountry }
+    </Link>,
+    <Typography
+      key="3"
+      sx={{ color: 'text.primary' }}
+    >
+      { infoType }
+    </Typography>
+  ]
 
   /* Buscar la cant de paginas que genera la consulta y trae la data con el hook */
   const meta = useMetaFiltered(country, type);
@@ -59,6 +89,21 @@ const Cervecerias = () => {
 
   return (
     <Container>
+      <Stack
+        spacing={2}
+        sx={{ marginBottom: 2 }}
+      >
+        <Breadcrumbs
+          className="Breadcrumbs"
+          separator={
+            <NavigateNextIcon
+            fontSize="small"
+          />}
+          aria-label="breadcrumb"
+        >
+          { breadcrumbs }
+        </Breadcrumbs>
+      </Stack>
       <Stack
         sx={{
           justifyContent: 'center',
