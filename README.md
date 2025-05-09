@@ -33,7 +33,7 @@ El componente <ErrorBoundary> encapsula los componentes principales para captura
 - Los datos están organizados en archivos .json, lo cual es ideal para desarrollo frontend sin backend.
 - Se usa un ErrorBoundary para mejorar la experiencia de usuario en caso de fallos de renderizado.
 
-![image](https://github.com/user-attachments/assets/3476d860-d93d-4eaf-83ce-4c589764f86a)
+![image](https://github.com/user-attachments/assets/10c219fc-16e9-46ac-a28c-bc301a3080e1)
 
 ## Estructura de los .json
 - paises
