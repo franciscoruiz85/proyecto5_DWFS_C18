@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Link, useLocation } from "react-router-dom"
 import {
   Container,
@@ -144,7 +144,7 @@ const Cerveceria = () => {
           target="_blank"
           sx={{ paddingLeft: 1 }}
         >
-          { brewery.website_url }
+          { brewery.name }
         </Typography>
       </Typography>
     </Container>

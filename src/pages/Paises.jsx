@@ -14,7 +14,7 @@ import usePaises from '../hooks/usePaises'
 
 const Paises = () => {
   const { paises, loading } = usePaises()
-  console.log(paises)
+  // console.log(paises)
 
   if (loading) {
     return (
@@ -56,7 +56,10 @@ const Paises = () => {
               <CardActionArea
                 component={ Link }
                 to={ `/paises/${item.name.replace(/\s+/g, '_')}` }
-                style={{ textDecoration: 'none', color: 'inherit' }}
+                style={{
+                  textDecoration: 'none',
+                  color: 'inherit'
+                }}
                 state={{ country: item }}
               >
                 <CardContent>

@@ -23,11 +23,11 @@ const Cervecerias = () => {
   const countryKey = location.state?.countryKey
   const type = location.state?.type
   const typeKey = location.state?.typeKey
-  console.log('state ', location.state)
-  console.log('country ', country)
-  console.log('type ', type)
-  console.log('countryKey ', countryKey)
-  console.log('typeKey ', typeKey)
+  // console.log('state ', location.state)
+  // console.log('country ', country)
+  // console.log('type ', type)
+  // console.log('countryKey ', countryKey)
+  // console.log('typeKey ', typeKey)
   const breadcrumbs = [
     <Link
     underline="hover"
@@ -64,7 +64,7 @@ const Cervecerias = () => {
   // console.log('cant_pages ', meta.cant_pages)
   
   /* Variables, url de consulta y consulta que trae las cervecerías  */
-  const vite_url = `${import.meta.env.VITE_BREWERYURL}`;
+  const vite_url = import.meta.env.VITE_BREWERYURL;
   const [update, setUpdate] = useState(false);
   const [pages, setPages] = useState(1);
   const url = `${vite_url}?by_country=${countryKey}&by_type=${typeKey}&per_page=50&page=${pages}&sort=type,name:asc`;
@@ -114,7 +114,7 @@ const Cervecerias = () => {
           boundaryCount={2}
           page={ pages }
           onChange={(event, value) => {
-            /* Revise el cambio de página, lo muestra y recarga la busqueda */
+            /* Revisa el cambio de página, lo muestra y recarga la busqueda */
             setPages(value)
             // console.log('pagina ',value)
             setUpdate(!update)
