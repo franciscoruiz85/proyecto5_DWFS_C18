@@ -1,6 +1,7 @@
 # Proyecto 5 - Aplicación sobre Cervecerías
 
 Este es un proyecto frontend construido con **React 19**, **Vite**, y **Material UI (MUI)** que permite visualizar distintos tipos de cervecerías y países, utilizando gráficas interactivas.
+La información mostrada se obtuvo desde las apis generadas por [Open Brewery DB](https://www.openbrewerydb.org/)
 
 ## 🛠 Tecnologías usadas
 
@@ -59,7 +60,10 @@ https://fruiz-proyecto5dwfsc18.netlify.app/
 
 1. Clonar el repositorio
 2. Ejecutar `npm install` para instalar las dependencias
-3. Ejecutar `npm run dev` para iniciar el servidor de desarrollo
+3. Crear un archivo .env con las variables para las apis usadas
+    a. VITE_METAURL=https://api.openbrewerydb.org/v1/breweries/meta
+    b. VITE_BREWERYURL=https://api.openbrewerydb.org/v1/breweries
+4. Ejecutar `npm run dev` para iniciar el servidor de desarrollo
 
 ## Scripts disponibles
 
