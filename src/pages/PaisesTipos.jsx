@@ -20,9 +20,9 @@ const PaisesTipos = () => {
   const location = useLocation()
   const country = location.state?.country['name']
   const countryKey = location.state?.country['key']
-  // console.log(location.state)
-  // console.log(country)
-  // console.log(countryKey)
+  console.log(location.state)
+  console.log(country)
+  console.log(countryKey)
   const { tipos, loadingTipos } = useTipos();
   console.log('tipos',tipos)
 
