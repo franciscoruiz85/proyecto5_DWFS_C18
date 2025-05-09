@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import {
   Container,
@@ -9,17 +9,15 @@ import {
 } from "@mui/material"
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 
-const paises = await import('../paises.json').then(module => module.default)
-const tipos = await import('../tipos.json').then(module => module.default)
-
 const Cerveceria = () => {
   const location = useLocation()
   const brewery = location.state?.brewery
-  // console.log(brewery)
-  const infoCountry = paises.find(pais => pais.key === brewery.country.replace(/\s+/g, '_').toLowerCase())
-  // console.log('infoCountry ', infoCountry)
-  const infoType = tipos.find(tipo => tipo.key === brewery.brewery_type.replace(/\s+/g, '_'))
-  // console.log('infoType ', infoType)
+  const country = location.state?.country
+  const countryKey = location.state?.countryKey
+  const type = location.state?.type
+  const typeKey = location.state?.typeKey
+  // console.log(location.state)
+
   const breadcrumbs = [
     <Link
       underline="hover"
@@ -33,27 +31,29 @@ const Cerveceria = () => {
       underline="hover"
       key="2"
       color="inherit"
-      to={ `/paises/${infoCountry.name.replace(/\s+/g, '_')}` }
+      to={ `/paises/${country.replace(/\s+/g, '_')}` }
       state={{
         country: {
-          key: infoCountry.key,
-          name: infoCountry.name
+          key: countryKey,
+          name: country
         }
       }}
     >
-      { infoCountry.name }
+      { country }
     </Link>,
     <Link
       underline="hover"
       key="3"
       color="inherit"
-      to={ `/cervecerias/${infoCountry.name.replace(/\s+/g, '_')}/${infoType.name.replace(/\s+/g, '_')}` }
+      to={ `/cervecerias/${country.replace(/\s+/g, '_')}/${type.replace(/\s+/g, '_')}` }
       state={{
-          country: infoCountry.key,
-          type: infoType.key
+          country: country,
+          countryKey: countryKey,
+          type: type,
+          typeKey: typeKey
       }}
     >
-      { infoType.name }
+      { type }
     </Link>,
     <Typography
       key="4"
@@ -100,7 +100,7 @@ const Cerveceria = () => {
         gutterBottom
         sx={{ marginBottom: '20px' }}
       >
-        Pais: { paises.find(pais => pais.key === brewery.country.replace(/\s+/g, '_').toLowerCase())?.name || brewery.country }
+        Pais: { country }
       </Typography>
       <Typography
         variant="h6"
@@ -121,7 +121,7 @@ const Cerveceria = () => {
         gutterBottom
         sx={{ marginBottom: '20px' }}
       >
-        Tipo: { tipos.find(type => type.key === brewery.brewery_type.replace(/\s+/g, '_').toLowerCase())?.name || brewery.brewery_type }
+        Tipo: { type }
       </Typography>
       <Typography
         variant="h6"

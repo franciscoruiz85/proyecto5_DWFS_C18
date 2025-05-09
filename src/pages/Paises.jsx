@@ -3,16 +3,32 @@ import { Link } from 'react-router-dom'
 import {
   Container,
   Grid,
+  CircularProgress,
   Card,
   CardActionArea,
   CardContent,
   Typography
 } from '@mui/material'
 import Cerveceria from '../assets/cerveceria.jpg'
-
-const paises = await import('../paises.json').then(module => module.default)
+import usePaises from '../hooks/usePaises'
 
 const Paises = () => {
+  const { paises, loading } = usePaises()
+  console.log(paises)
+
+  if (loading) {
+    return (
+      <Grid
+        container
+        alignItems='center'
+        justifyContent='center'
+        style={{ minHeight: '100vh' }}
+      >
+        <CircularProgress />
+      </Grid>
+    );
+  }
+
   return (
     <Container>
       <Grid

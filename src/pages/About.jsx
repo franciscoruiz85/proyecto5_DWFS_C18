@@ -33,7 +33,7 @@ const About = () => {
           Proyecto sin fines de lucro sobre cervecerías.
         </p>
         <p>
-          Los datos pueden ser accesados directamente en <Link to='https://www.openbrewerydb.org/'>Open Brewery DB</Link>.
+          Los datos pueden ser accesados directamente en <Link to='https://www.openbrewerydb.org/' target="_blank">Open Brewery DB</Link>.
         </p>
         <p>
           La información mostrada corresponde a datos entregados y actualizados desinteresadamente por diferentes personas.

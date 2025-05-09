@@ -1,12 +1,29 @@
 import React from "react"
 import {
   Container,
+  Grid,
+  CircularProgress,
   Typography
 } from "@mui/material"
+import useTipos from '../hooks/useTipos'
 
-const tipos = await import("../tipos.json").then((module) => module.default)
 
 const CerveceriasTipos = () => {
+  const { tipos, loading } = useTipos();
+  
+  if (loading) {
+    return (
+      <Grid
+        container
+        alignItems='center'
+        justifyContent='center'
+        style={{ minHeight: '100vh' }}
+      >
+        <CircularProgress />
+      </Grid>
+    );
+  }
+
   return (
     <Container>
       <Typography

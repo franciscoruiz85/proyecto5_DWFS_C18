@@ -16,65 +16,63 @@ import {
 } from '@mui/material'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 
-const vite_url = `${import.meta.env.VITE_BREWERYURL}`;
-const paises = await import('../paises.json').then(module => module.default);
-const tipos = await import('../tipos.json').then(module => module.default);
-
 const Cervecerias = () => {
   /* Recibe los parametros pasados por el state */
   const location = useLocation()
   const country = location.state?.country
+  const countryKey = location.state?.countryKey
   const type = location.state?.type
-  // console.log('country ', country)
-  // console.log('type ', type)
-  const infoCountry = paises.find(pais => pais.key === country)?.name
-  // console.log('infoCountry ', infoCountry)
-  const infoType = tipos.find(tipo => tipo.key === type)?.name
-  // console.log('infoType ', infoType)
+  const typeKey = location.state?.typeKey
+  console.log('state ', location.state)
+  console.log('country ', country)
+  console.log('type ', type)
+  console.log('countryKey ', countryKey)
+  console.log('typeKey ', typeKey)
   const breadcrumbs = [
     <Link
-      underline="hover"
-      key="1"
-      color="inherit"
-      to={"/paises"}
+    underline="hover"
+    key="1"
+    color="inherit"
+    to={"/paises"}
     >
       Paises
     </Link>,
     <Link
-      underline="hover"
-      key="2"
-      color="inherit"
-      to={`/paises/${infoCountry.replace(/\s+/g, '_')}`}
-      state={{
-        country: {
-          key: country,
-          name: infoCountry
-        }
-      }}
+    underline="hover"
+    key="2"
+    color="inherit"
+    to={`/paises/${country.replace(/\s+/g, '_')}`}
+    state={{
+      country: {
+        key: countryKey,
+        name: country
+      }
+    }}
     >
-      { infoCountry }
+      { country }
     </Link>,
     <Typography
-      key="3"
-      sx={{ color: 'text.primary' }}
+    key="3"
+    sx={{ color: 'text.primary' }}
     >
-      { infoType }
+      { type }
     </Typography>
   ]
-
+  
   /* Buscar la cant de paginas que genera la consulta y trae la data con el hook */
-  const meta = useMetaFiltered(country, type);
+  const meta = useMetaFiltered(countryKey, typeKey);
   // console.log('cant_pages ', meta.cant_pages)
-
+  
   /* Variables, url de consulta y consulta que trae las cervecerías  */
+  const vite_url = `${import.meta.env.VITE_BREWERYURL}`;
   const [update, setUpdate] = useState(false);
   const [pages, setPages] = useState(1);
-  const url = `${vite_url}?by_country=${country}&by_type=${type}&per_page=50&page=${pages}&sort=type,name:asc`;
+  const url = `${vite_url}?by_country=${countryKey}&by_type=${typeKey}&per_page=50&page=${pages}&sort=type,name:asc`;
   // console.log(url)
   const { data, loading } = useFetch(url, update);
   // console.log('breweries ', data)
 
-  if (loading) {
+  if ( loading ) {
     return (
       <Grid
         container
@@ -141,12 +139,18 @@ const Cervecerias = () => {
               }}>
                 <CardActionArea
                   component={ Link }
-                  to={ `/cervecerias/${infoCountry.replace(/\s+/g, '_')}/${infoType.replace(/\s+/g, '_')}/${item.name.replace(/\s+/g, '_')}` }
+                  to={ `/cervecerias/${country.replace(/\s+/g, '_')}/${type.replace(/\s+/g, '_')}/${item.name.replace(/\s+/g, '_')}` }
                   style={{
                     textDecoration: 'none', 
                     color: 'inherit'
                   }}
-                  state={{ brewery: item }}
+                  state={{
+                    brewery: item,
+                    country: country,
+                    countryKey: countryKey,
+                    type: type,
+                    typeKey: typeKey
+                  }}
                 >
                   <CardContent>
                     <Typography

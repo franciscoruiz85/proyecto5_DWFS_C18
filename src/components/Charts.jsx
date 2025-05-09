@@ -1,14 +1,13 @@
 import React from 'react'
 import {
   Container,
+  Grid,
+  CircularProgress,
   Typography
 } from "@mui/material"
 import { BarChart } from '@mui/x-charts/BarChart'
-
-const chartCountries = await import('../chartCountries.json').then(module => module.default)
-// console.log('chart paises', chartCountries)
-const chartTypes = await import('../chartTypes.json').then(module => module.default)
-// console.log('chart tipos', chartTypes)
+import useChartCountries from '../hooks/useChartCountries'
+import useChartTypes from '../hooks/useChartTypes'
 
 const chartCountriesSetting = {
   xAxis: [{
@@ -26,6 +25,22 @@ const chartTypesSetting = {
 }
 
 const Charts = () => {
+  const { chartCountries, loading } = useChartCountries();
+  const { chartTypes, loadingb } = useChartTypes();
+
+  if (loading || loadingb) {
+    return (
+      <Grid
+        container
+        alignItems='center'
+        justifyContent='center'
+        style={{ minHeight: '100vh' }}
+      >
+        <CircularProgress />
+      </Grid>
+    );
+  }
+
   return (
     <Container>
         <Typography

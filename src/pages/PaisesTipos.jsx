@@ -1,5 +1,4 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import {
   Container,
@@ -14,15 +13,19 @@ import {
 } from '@mui/material'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import Cerveceria from '../assets/cerveceria.jpg'
-
-const paises = await import('../paises.json').then(module => module.default)
-const tipos = await import('../tipos.json').then(module => module.default)
+import useMetaTypes from '../hooks/useMetaTypes'
+import useTipos from '../hooks/useTipos'
 
 const PaisesTipos = () => {
   const location = useLocation()
-  const country = location.state?.country.key
+  const country = location.state?.country['name']
+  const countryKey = location.state?.country['key']
   // console.log(location.state)
-  const info = paises.find(pais => pais.key === country)?.name
+  // console.log(country)
+  // console.log(countryKey)
+  const { tipos, loadingTipos } = useTipos();
+  console.log('tipos',tipos)
+
   const breadcrumbs = [
     <Link
       underline="hover"
@@ -36,28 +39,14 @@ const PaisesTipos = () => {
       key="2"
       sx={{ color: 'text.primary' }}
     >
-      {info}
+      { country }
     </Typography>
   ]
 
-  const [bTypes, setBTypes] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const url = `https://api.openbrewerydb.org/v1/breweries/meta?by_country=${country}`;
-
-  useEffect(() => {
-    setLoading(true);
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        const types = Object.keys(data.by_type || {});
-        setBTypes(types);
-      })
-      .catch(error => console.error('Error fetching data:', error))
-      .finally(() => setLoading(false));
-  }, []);
+  const { bTypes, loading } = useMetaTypes(countryKey)
   // console.log(bTypes)
 
-  if (loading) {
+  if ( loading || loadingTipos ) {
     return (
       <Grid
         container
@@ -114,14 +103,16 @@ const PaisesTipos = () => {
             }}>
               <CardActionArea
                 component={ Link }
-                to={ `/cervecerias/${info.replace(/\s+/g, '_')}/${tipos.find(tipo => tipo.key === item)?.name.replace(/\s+/g, '_')}` }
+                to={ `/cervecerias/${country.replace(/\s+/g, '_')}/${tipos.find(tipo => tipo.key === item)?.name.replace(/\s+/g, '_')}` }
                 style={{
                   textDecoration: 'none',
                   color: 'inherit'
                 }}
                 state={{
                   country: country,
-                  type: item
+                  countryKey: countryKey,
+                  type: tipos.find(tipo => tipo.key === item)?.name,
+                  typeKey: item
                 }}
               >
                 <CardContent>
