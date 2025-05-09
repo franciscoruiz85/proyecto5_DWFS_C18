@@ -1,12 +1,12 @@
 [
-    { "name": "Austria", "key":"austria" },
-    { "name": "Escocia", "key":"scotland" },
-    { "name": "Estados Unidos", "key":"united_states" },
-    { "name": "Francia", "key":"france" },
-    { "name": "Inglaterra", "key":"england" },
-    { "name": "Irlanda", "key":"ireland" },
-    { "name": "Korea del Sur", "key":"south_korea" },
-    { "name": "Polonia", "key":"poland" },
-    { "name": "Portugal", "key":"portugal" },
-    { "name": "Singapur", "key":"singapore" }
+    { "name": "Austria", "key": "austria" },
+    { "name": "Escocia", "key": "scotland" },
+    { "name": "Estados Unidos", "key": "united_states" },
+    { "name": "Francia", "key": "france" },
+    { "name": "Inglaterra", "key": "england" },
+    { "name": "Irlanda", "key": "ireland" },
+    { "name": "Korea del Sur", "key": "south_korea" },
+    { "name": "Polonia", "key": "poland" },
+    { "name": "Portugal", "key": "portugal" },
+    { "name": "Singapur", "key": "singapore" }
 ]
