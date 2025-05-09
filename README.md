@@ -49,6 +49,12 @@ El componente <ErrorBoundary> encapsula los componentes principales para captura
 
 ![image](https://github.com/user-attachments/assets/237ccf04-188a-43f0-ba82-ba73790689d4)
 
+## Despliegue
+El proyecto se encuentra desplegado en Netlify
+https://fruiz-proyecto5dwfsc18.netlify.app/
+
+![image](https://github.com/user-attachments/assets/a1f7a35b-20ee-47b7-81bd-34b9f1efa7bd)
+
 ## Instalación
 
 1. Clonar el repositorio
