@@ -1,7 +1,8 @@
 # Proyecto 5 - Aplicación sobre Cervecerías
 
 Este es un proyecto frontend construido con **React 19**, **Vite**, y **Material UI (MUI)** que permite visualizar distintos tipos de cervecerías y países, utilizando gráficas interactivas.
-La información mostrada se obtuvo desde las apis generadas por [Open Brewery DB](https://www.openbrewerydb.org/)
+
+La información mostrada se obtuvo desde las apis generadas por [Open Brewery DB](https://www.openbrewerydb.org/).
 
 ## 🛠 Tecnologías usadas
 
